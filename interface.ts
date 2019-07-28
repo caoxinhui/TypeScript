@@ -5,14 +5,16 @@ interface SquareConfig {
   width?: number
 }
 
-function createSquare(config: SquareConfig): { color: string, area: number } {
-  let newSquare = { color: "white", area: 100 }
-  if (config.color) {
-    newSquare.color = config.color
-  }
-  if (config.width) {
-    newSquare.area = config.width * config.width
-  }
-  return newSquare
+
+let a: number[] = [1, 2, 3, 4]
+let ro: ReadonlyArray<number> = a
+
+interface SquareConfig {
+  color?: string
+  width?: number
+  [propName: string]: any
 }
-let mySquare = createSquare({ color: "black" });
+
+interface SearchFunc {
+  (source: string, subString: string): boolean
+}
